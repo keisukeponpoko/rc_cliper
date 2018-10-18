@@ -1,0 +1,27 @@
+{
+  "name": "cliper",
+  "version": "1.0.0",
+  "description": "My splendid Nuxt.js project",
+  "author": "keisukeponpoko",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.9.4",
+    "nuxt": "^2.0.0",
+    "pug": "2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "push-dir": "^0.4.1",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
