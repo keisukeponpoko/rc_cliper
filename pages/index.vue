@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     .contents
-      p.title RoomClipチャート
+      p.title あなたに合うお部屋は？
       nuxt-link.button(to="/swipe") スタート
 
 </template>
@@ -26,11 +26,12 @@ export default {
 
 .button {
   color: #fff;
-  background: red;
+  background: #DC3C36;
   font-size: 18px;
   border-radius: 0.8rem;
   padding: 1.6rem;
   text-decoration: none;
+  font-weight: bold;
 
   &:hover {
     opacity: 0.6;

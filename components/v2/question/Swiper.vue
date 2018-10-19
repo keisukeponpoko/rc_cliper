@@ -29,15 +29,15 @@
         </div>
       </div>
       <div class="btns">
-        <img
-          src="~assets/swipe/nope.png"
-          @click="decide('nope')">
+        <div class="button skip" @click="decide('nope')">
+          スキップ
+        </div>
         <!--<img-->
         <!--src="~assets/swipe/super-like.png"-->
         <!--@click="decide('super')">-->
-        <img
-          src="~assets/swipe/like.png"
-          @click="decide('like')">
+        <div class="button like" @click="decide('like')">
+          いいね
+        </div>
       </div>
     </no-ssr>
   </div>
@@ -370,5 +370,29 @@ export default {
   width: 350px;
   height: 350px;
   background-size: cover;
+}
+
+.button {
+  margin: 0 10px;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.3rem 0;
+  width: 130px;
+  font-weight: bold;
+
+  &.like {
+    color: white;
+    background: #DC3C36;
+  }
+
+  &.skip {
+    color: #431;
+    background: #F6F5F4;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
 }
 </style>
