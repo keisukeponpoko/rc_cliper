@@ -1,33 +1,21 @@
 <template lang="pug">
   div
-    #fb-root &nbsp;
-    script
-      | (function(d, s, id) {
-      | var js, fjs = d.getElementsByTagName(s)[0];
-      | if (d.getElementById(id)) return;
-      | js = d.createElement(s); js.id = id;
-      | js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-      | fjs.parentNode.insertBefore(js, fjs);
-      | }(document, 'script', 'facebook-jssdk'));
-
     .contents
-      p.title {{ text }}
+      p.title あなたにおすすめのインテリアは・・・
 
-      .share
-        .share_child
-          a.twitter-share-button(href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false") Tweet
-            script(async src="https://platform.twitter.com/widgets.js" charset="utf-8")
-
-        .share_child
-          .fb-share-button(data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small" data-mobile-iframe="true")
-            a.fb-xfbml-parse-ignore(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse")
+      p.result {{ text }}
 
       ul.images
         li.image(v-for='image in images')
           img.img(:src="'https://cdn.roomclip.jp/v1/640/roomclip-bucket/img_640/' + image + '.jpg'")
 
+      p.share 結果をシェア
+      .shares
+        button.twitter Twitter
+        button.facebook Facebook
+
       .buttonBlock
-        a.button(:href="'https://roomclip.jp/tag/' + id") もっと見る
+        a.button(:href="'https://roomclip.jp/tag/' + id") {{ text }}の写真をもっと見る
 </template>
 
 <script>
@@ -37,15 +25,15 @@ export default {
     console.log(params);
 
     const TEXTS = [
-      'あなたにはホワイトインテリアがおすすめ！',
-      'あなたにはナチュラルインテリアがおすすめ！',
-      'あなたには北欧インテリアがおすすめ！',
-      'あなたには西海岸インテリアがおすすめ！',
-      'あなたにはシンプルインテリアがおすすめ！',
-      'あなたには男前インテリアがおすすめ！',
-      'あなたにはモノトーンインテリアがおすすめ！',
-      'あなたにはカフェ風インテリアがおすすめ！',
-      'あなたには塩系インテリアがおすすめ！'
+      'ホワイトインテリア',
+      'ナチュラルインテリア',
+      '北欧インテリア',
+      '西海岸インテリア',
+      'シンプルインテリア',
+      '男前インテリア',
+      'モノトーンインテリア',
+      'カフェ風インテリア',
+      '塩系インテリア'
     ];
 
     const TAG_IDS = [
@@ -71,8 +59,6 @@ export default {
         'c12ad0dcca764283f3ef62edf994dc22b0f3e0df',
         '43575d9486982c9c5072856abd6dad5f840d62d6',
         '2305caf87a3f405b3fc785c204a2ce2a2975148e',
-        '73db0325d853452338f132f9ff109faff8b4bdbb',
-        'c46c7505dbc318dd4924739a4973ec32a7a76cec'
       ]
     }
   }
@@ -96,6 +82,31 @@ export default {
   padding: 1.2rem;
 }
 
+.shares {
+  display: flex;
+  justify-content: center;
+
+  button {
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 0.8rem;
+    padding: .4rem .8rem;
+    margin: .2rem 1rem;
+    text-decoration: none;
+    width: 30%;
+    height: 40px;
+  }
+
+  .twitter {
+    background: #1da1f2;
+  }
+
+  .facebook {
+    background: blue;
+  }
+}
+
 .buttonBlock {
   margin-top: 3rem;
 }
@@ -103,9 +114,9 @@ export default {
 .button {
   color: #fff;
   background: #DC3C36;
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 0.8rem;
-  padding: 1.6rem;
+  padding: .4rem .8rem;
   text-decoration: none;
 
   &:hover {
@@ -134,6 +145,11 @@ export default {
   width: 50%;
   height: 50%;
   padding: 0.2px 1px;
+}
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .img {
