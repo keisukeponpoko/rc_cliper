@@ -9,6 +9,9 @@
         li.image(v-for='image in images')
           img.img(:src="'https://cdn.roomclip.jp/v1/640/roomclip-bucket/img_640/' + image + '.jpg'")
 
+      p.explain
+        | ホワイトインテリアとは、ホワイトなインテリアのことです。
+
       p.share 結果をシェア
       .shares
         button.twitter Twitter
@@ -145,6 +148,10 @@ export default {
   width: 50%;
   height: 50%;
   padding: 0.2px 1px;
+}
+
+.explain {
+  margin: 2rem;
 }
 
 .result {
