@@ -1,7 +1,7 @@
 # cliper
 
 > My splendid Nuxt.js project
-
+test
 ## Build Setup
 
 ``` bash
